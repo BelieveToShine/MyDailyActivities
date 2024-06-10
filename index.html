@@ -485,6 +485,7 @@ i.bi.bi-eyeglasses {
 		function createNewGoal(ul, goalActivity, isFirstRecord){
 			if(!isFirstRecord) ul.find('li:first').clone(true).appendTo(ul);
 			var li = isFirstRecord ? ul.find('li:first-child') : ul.find('li:last-child');
+			goalActivity.Term = goalActivity.Term.replace('🎳', '').replace('🎯', '');
 			li.find('#ddlTerm').val(goalActivity.Term);
 			li.find('#txtTopic').val(goalActivity.Topic);
 			li.find('#txtAction').val(goalActivity.Action);
