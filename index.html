@@ -605,9 +605,9 @@ i.bi.bi-eyeglasses {
 			myStatusUpdates.GoalActivities = [];
 			$.each(statusUpdates.GoalActivities, function(key, item){
 				var goalActivity = {};
-				goalActivity.Term = "🎳"+item.Term+"🎯";
-				goalActivity.Topic = "✨ *"+item.Topic+"* ✨";
-				goalActivity.Action = "🎬"+item.Action;
+				goalActivity.Term = item.Term.startsWith("🎳")?item.Term:("🎳"+item.Term+"🎯");
+				goalActivity.Topic = item.Topic.startsWith("✨")?item.Topic:("✨ *"+item.Topic+"* ✨");
+				goalActivity.Action = item.Action.startsWith("🎬")?item.Action:("🎬"+item.Action);
 				myStatusUpdates.GoalActivities.push(goalActivity);
 			});
 			myStatusUpdates.Positive = [];
