@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Team Goal Activities</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
+     <style type="text/css">
+	 body{
+		 font-family: "Roboto Slab", serif;
+		 font-optical-sizing: auto;
+		 font-weight: 400;
+		 font-style: normal;
+		 font-size: 15px;
+	 }
+	.form-control{font-size:15px;}
+   .form_container {
+	  max-width: 750px;
+	  margin: 30px auto;
+	  padding: 25px 20px;
+	  border: 1px solid #ddd;
+	  border-radius: 10px;
+	  box-shadow: 0 1px 1px rgb(0 0 0 / 20%);
+	  background:rgba(255,255,255,0.97);
+	 
+  }  
+  .form-header{margin-bottom: 20px;}
+  .form-header h2 {
+    margin: 0 0 15px 0;
+    font-size: 32px;
+    font-weight: 900;
+    color:#0d6efd;
+    border-bottom: 1px dashed;
+    padding-bottom: 8px;
+	text-transform:uppercase;
+}
+  #readmode .form-header h5{color: green;}
+  label.form-label {
+	display: block;
+	margin-bottom: 5px;
+}
+.activitiesItem{margin:0;padding:0;list-style:none;}
+li.addItem_row {
+	display: flex;
+	margin-bottom: 10px;
+	
+}
+.add_row_btns {
+    display: flex;
+    padding-left: 5px;
+    justify-content: right;
+    align-items: center;
+	flex-flow: wrap;
+}
+.add_row_btns {
+    margin: 0;
+    width: 35px;
+}
+.addItem{display:none}
+.addItem svg {  margin-left: 0;}
+.removeItem svg {  fill: red;}
+label.form-label { font-weight: 600;}
+.form_group {
+    margin: 25px 0;
+}
+body{background:#ddd url(team.jpeg) no-repeat left center / cover; }
+
+.activitiesItem li:first-child .removeItem{display:none;}
+.activitiesItem li:last-child .addItem{display:inline-block;}
+p{margin:0;}
+#readmode label.form-label {
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+	color: blue;
+}
+span#wokeup { color: #000;}
+#readmode .input-group.mb-3 {
+    margin-bottom: 10px !important;
+}
+#readmode .form_group {
+    border: 1px dashed #ddd;
+    border-radius: 5px;
+    padding: 16px;
+    background: #fff;
+}
+
+#readmode li.addItem_row svg {
+    margin-top: 5px;
+    margin-right: 6px;
+	fill: green;
+}
+
+#readmode svg {  margin-right: 6px;fill: green;}
+#readmode p {
+    padding-left: 28px;
+}
+#readmode h6 {
+    color: #ff5400;
+    font-weight: 700;
+}
+.form-header button, a#aMode, input#selectFiles{
+    background: #02a249;
+    border: 1px solid rgb(24 83 3 / 84%);
+    padding: 6px 10px 5px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: 0 3px 1px rgb(24 83 3 / 84%);
+	font-size: 14px;
+    display: inline-block;
+    vertical-align: middle;
+}
+a#aMode{
+	background: #0d6efd;
+	border: 1px solid rgb(4 89 149 / 92%);
+	box-shadow: 0 3px 1px rgb(4 89 149 / 82%);
+	cursor: pointer;
+}
+a#aMode:hover { background: #0d5bcd;}
+.form-header button:hover {  background: #02692f;}
+input#selectFiles {
+    display: block;
+    margin: 30px 0 10px;
+    background: #e25d09;
+    border: 1px solid rgb(149 42 4 / 92%);
+    box-shadow: 0 3px 1px rgb(103 9 9 / 82%);
+	width: 100%;
+}
+.form-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+input[type="file"]::file-selector-button {
+  background-color: #e25d09;
+  border: none;
+  color:#fff;
+}
+.input-group-text {    
+    color: #fff;  
+    background-color: #575757;
+    border: 1px solid #919191;
+}
+.form-control{    border: 1px solid #919191;}
+.addItem_row select {   
+    border-radius: 8px 0 0 8px;
+    margin-right: 5px;
+    padding: 7px;
+	height: 45px;
+}
+
+li.addItem_row .input-group.mb-3:nth-child(2){margin-right:5px;}
+.btn.btn-primary{
+	background: #02a249;
+    border: 1px solid rgb(24 83 3 / 84%);
+    padding: 7px 16px 6px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: 0 3px 1px rgb(24 83 3 / 84%);
+
+}
+.btn.btn-primary:hover{background: #02692f;}
+.inner_col {
+    flex: 1 0 100%;
+    display: flex;
+    margin-bottom: 15px;
+}
+#ulGoalActivities li.addItem_row{
+	flex-flow: wrap;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background: #f7f7f7;
+}
+i.bi { font-size:16px;}
+i.bi.bi-eyeglasses {
+    font-size: 20px;
+    line-height: 1;
+}
+
+</style>
+
+     </style>
+  </head>
+  <body>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form_container">
+                <div class="form-header">
+				<h2>My Goal Activities</h2> 
+				<a id="aMode"><i class="bi bi-eyeglasses"></i> View</a>
+				<button onclick="downloadStatusUpdate()"><i class="bi bi-download"></i> Download</button>
+				<button onclick="copyStatusUpdate()"><i class="bi bi-copy"></i> Copy</button>
+				<input type="file" id="selectFiles" value="Import" />
+				</div>
+                <div class="form_body">
+                  <form id='dailyStatusUpdate'>
+                      <div class="input-group mb-3">
+						<span class="input-group-text">Email Id :</span>                       
+                        <input id="txtEmailId" type="text" class="form-control" name="EmailId" required>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text">Woke Up At</span>
+                        <input id="txtWokeUpAt" type="datetime-local" class="form-control" name="WokeUpAt" required>
+                      </div>
+						
+                      <div class="mb-3">
+                        <label class="form-label">Exercise Activities</label>
+						<ul id="ulExerciseActivities" class="activitiesItem">
+							<li class="addItem_row">							
+								<input type="text" class="form-control" placeholder="Entry a Activitie" name="ExerciseActivities[]" required>
+								<span class="add_row_btns">
+									<a class="removeItem" href="#" title="Remove Row"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>
+									</a>
+									<a class="addItem" href="#" title="Add Row"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></a>
+								</span>
+							</li>
+						</ul>	
+                      </div>
+						<div class="form_group">
+							<h5>Goal Activities</h5>
+						<ul id="ulGoalActivities" class="activitiesItem">
+							<li class="addItem_row">
+								<div class="inner_col">
+									<select id="ddlTerm" name="Term">
+									  <option value="Short Term">Short Term</option>
+									  <option value="Mid Term">Mid Term</option>
+									  <option value="Long Term">Long Term</option>
+									</select>
+									<div class="input-group mb-8">
+										<span class="input-group-text">Topic</span>
+										<input id="txtTopic" type="text" class="form-control" required>
+								   </div>
+							   </div>
+							   <div class="inner_col">
+								   <div class="input-group mb-9">
+										<span class="input-group-text">Action</span>
+										<textarea id="txtAction" rows="5"  class="form-control" required></textarea>
+								   </div>
+								   <span class="add_row_btns">
+										<a class="removeItem" href="#" title="Remove Row"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>
+										</a>
+										<a class="addItem" href="#" title="Add Row"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></a>
+									</span>
+								</div>
+						   </li>
+						</ul>
+					   </div>
+					    <div class="mb-3">
+                        <label class="form-label">Positive</label>
+						<ul id="ulPositive" class="activitiesItem">
+							<li class="addItem_row">							
+								<input type="text" class="form-control" placeholder="Entry a Activitie" name="Positive[]" required>
+								<span class="add_row_btns">
+									<a class="removeItem" href="#" title="Remove Row"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>
+									</a>
+									<a class="addItem" href="#" title="Add Row"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></a>
+								</span>
+							</li>
+						</ul>	
+                      </div>
+					  
+					   <div class="mb-3">
+                        <label class="form-label">Gratitude</label>
+						<ul id="ulGratitude" class="activitiesItem">
+							<li class="addItem_row">							
+								<input type="text" class="form-control" placeholder="Entry a Activitie" name="Gratitude[]" required>
+								<span class="add_row_btns">
+									<a class="removeItem" href="#" title="Remove Row"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>
+									</a>
+									<a class="addItem" href="#" title="Add Row"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></a>
+								</span>
+							</li>
+						</ul>	
+                      </div>
+					  <div class="mb-3" style="  text-align: center;">
+					   <input id='statusUpdateBtn' type="button" value="Submit" class="btn btn-primary"></input>
+					   <input id='btnReset' type="button" value="Reset" class="btn btn-secondary"></input>
+					   </div>
+                  </form>
+				  
+				  <div id='readmode' style="display:none">
+                      
+					  <div class="input-group mb-3">
+                        <label class="form-label">
+						<i class="bi bi-envelope" style="color:green"></i> Email Id: <span id="spnEmailId" class="wokeup"></span></label>                       
+                      </div>	
+                      <div class="input-group mb-3">
+                        <label class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alarm" viewBox="0 0 16 16">
+  <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z"/><path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z"/></svg> Woke Up At: <span id="wokeup"></span></label>                       
+                      </div>						
+                      <div class="mb-3">
+                        <label class="form-label">Exercise Activities:</label>
+						<ul class="activitiesItem" id="exerciseactivities"></ul>	
+                      </div>
+						<div class="form_group">
+							<h5>Goal Activities</h5>
+							<div id="goalActivities">
+								<div id="goalActivityTemplate" style="display:none">
+									<div class="myGoalActivities">
+										<h6 id="goalTerm">Term</h6>
+										<div class="input-group mb-3">								
+											<label class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trophy-fill" viewBox="0 0 16 16"><path d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5zm.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935z"/></svg> Topic: </label> 
+											<p id="goalTopic"></p>
+									   </div>
+									   <div class="input-group mb-3">
+											<label class="form-label">Action: </label> 
+											<p id="goalAction"></p>
+									   </div>
+								   </div>
+							   </div>							
+						   </div>
+					   </div>
+					    <div class="mb-3">
+                        <label class="form-label">Positive: </label>
+						<ul class="activitiesItem" id="positiveitem"></ul>	
+                      </div>
+					  
+					   <div class="mb-3">
+                        <label class="form-label">Gratitude: </label>
+						<ul class="activitiesItem" id="gratitudeitem"></ul>	
+                      </div>					 
+                  </div>
+				  
+				  
+                </div>
+            </div>
+            
+
+          </div>
+        </div>    
+  
+    </div>   
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script>
+	
+
+		
+
+	$(document).ready(function() {
+	
+		editMode();
+		
+		$('#aMode').click(function(){
+			 toggleMode();
+		});
+		$('.addItem').click(function(){
+			var ul = $(this).closest('.activitiesItem');
+			ul.find('li:first').clone(true).appendTo(ul);
+			ul.find('li:last-child input').val('');
+			ul.find('li:last-child textarea').val('');
+			
+			return false;
+		});
+		
+		$('.removeItem').click(function(){
+			$(this).closest('.addItem_row').remove();
+			return false;
+		});
+		
+		$("#statusUpdateBtn").on('click', function(){	
+			var myStatusUpdates = getDetails();
+			localStorage.setItem("myStatusUpdates", JSON.stringify(myStatusUpdates));
+			toggleMode();
+		});
+		
+		$('#btnReset').on('click', function(){	
+			GetStatusUpdateTemplate();
+			localStorage.removeItem("myStatusUpdates");
+		});
+		
+		function GetStatusUpdateTemplate(){
+		fetch("https://api.jsonbin.io/v3/b/66098947acd3cb34a8311465").then(response => response.json())
+		  .then(json => {
+		  if(json!= null && json.record != undefined){
+			if($('#txtEmailId').val() != ""){
+				json.record.EmailId = $('#txtEmailId').val();
+				json.record.WokeUpAt = getCurrentDateTime();
+				}
+			localStorage.setItem("myStatusUpdates", JSON.stringify(json.record));
+			}
+			editMode();
+		  });
+	}
+		
+		function getDetails(){
+		var myStatusUpdates = {};
+		myStatusUpdates.EmailId = $('#txtEmailId').val();
+		myStatusUpdates.WokeUpAt = $('#txtWokeUpAt').val();
+		myStatusUpdates.ExerciseActivities = [];
+		$('#ulExerciseActivities input').each(function(){
+			myStatusUpdates.ExerciseActivities.push($(this).val());
+		});
+		myStatusUpdates.Positive = [];
+		$('#ulPositive input').each(function(){
+			myStatusUpdates.Positive.push($(this).val());
+		});
+		myStatusUpdates.Gratitude = [];
+		$('#ulGratitude input').each(function(){
+			myStatusUpdates.Gratitude.push($(this).val());
+		});
+		myStatusUpdates.GoalActivities = [];
+		$('#ulGoalActivities li').each(function(){
+			var goalActivity = goalActivityTemplate();
+			goalActivity.Term = $(this).find('#ddlTerm').val();
+			goalActivity.Topic = $(this).find('#txtTopic').val();
+			goalActivity.Action = $(this).find('#txtAction').val();
+			
+			myStatusUpdates.GoalActivities.push(goalActivity);
+		});
+		return myStatusUpdates;
+		}
+		
+		function editMode(){
+			
+			var myStatusUpdates = JSON.parse(localStorage.getItem("myStatusUpdates"));
+			console.log("ls",JSON.stringify(myStatusUpdates));
+			if(myStatusUpdates == null){
+				myStatusUpdates = statusUpdateTemplate();
+				myStatusUpdates.GoalActivities.push(goalActivityTemplate());
+			}
+			
+			$('#txtEmailId').val(myStatusUpdates.EmailId);
+			$('#txtWokeUpAt').val(myStatusUpdates.WokeUpAt);
+			var count = 0;
+			$('#ulExerciseActivities').find('li').not(':first').remove();
+			$.each(myStatusUpdates.ExerciseActivities, function(key, item){
+				console.log("ExerciseActivities",item);
+				if(count > 0) createNewRecord($('#ulExerciseActivities'),item);
+				else $('#ulExerciseActivities').find('li:first-child input').val(item);
+				count++;
+			});
+			count = 0;
+			$('#ulPositive').find('li').not(':first').remove();
+			$.each(myStatusUpdates.Positive, function(key, item){
+				console.log("Positive",item);
+				if(count > 0) createNewRecord($('#ulPositive'),item);
+				else $('#ulPositive').find('li:first-child input').val(item);
+				count++;
+			});
+			count = 0;
+			$('#ulGratitude').find('li').not(':first').remove();
+			$.each(myStatusUpdates.Gratitude, function(key, item){
+				console.log("Gratitude",item);
+				if(count > 0) createNewRecord($('#ulGratitude'),item);
+				else $('#ulGratitude').find('li:first-child input').val(item);
+				count++;
+			});
+			count = 0;
+			$('#ulGoalActivities').find('li').not(':first').remove();
+			$.each(myStatusUpdates.GoalActivities, function(key, item){
+				createNewGoal($('#ulGoalActivities'), item, (count == 0));
+				count++;
+			});
+		}
+		
+		function statusUpdateTemplate(){
+			return {
+			"EmailId":"...@gmail.com",
+			"WokeUpAt":getCurrentDateTime(),
+			"ExerciseActivities":[],
+			"GoalActivities":[],
+			"Positive":["Cleaning : ...","Healthy Food : ...","General : ..."],
+			"Gratitude":["Cosmos : ...","Family : ...","Friends : ..."]};
+		}
+		function goalActivityTemplate(){
+			return {"Term":"Mid Term","Topic":"","Action":""}
+		}
+		
+		function createNewRecord(ul, value){
+			ul.find('li:first').clone(true).appendTo(ul);
+			ul.find('li:last-child input').val(value);
+		}
+		
+		function createNewGoal(ul, goalActivity, isFirstRecord){
+			if(!isFirstRecord) ul.find('li:first').clone(true).appendTo(ul);
+			var li = isFirstRecord ? ul.find('li:first-child') : ul.find('li:last-child');
+			li.find('#ddlTerm').val(goalActivity.Term);
+			li.find('#txtTopic').val(goalActivity.Topic);
+			li.find('#txtAction').val(goalActivity.Action);
+		}
+		
+		function toggleMode(){
+			var mode = $('#aMode').html();
+			 console.log(mode);
+			 if(mode == "Edit"){
+				$('#aMode').html('View');
+				$('#dailyStatusUpdate').show();
+				$('#readmode').hide();	
+			 }
+			 else{
+				 $('#aMode').html('Edit');
+				 $('#dailyStatusUpdate').hide();
+				$('#readmode').show();	
+				viewMode();
+			 }
+		}
+		
+		function viewMode(){
+			var myStatusUpdates = JSON.parse(localStorage.getItem("myStatusUpdates"));
+			console.log('viewMode()', myStatusUpdates);
+			$('#dailyStatusUpdate').hide();
+			$('#readmode').show();	
+			// Apply the values for View Mode.
+			$('#spnEmailId').html(myStatusUpdates.EmailId);
+			var wokeUpTime = getFormattedDateTime(myStatusUpdates.WokeUpAt);
+			$('#wokeup').text(wokeUpTime);
+			$("#exerciseactivities, #positiveitem, #gratitudeitem").html('');
+			$.each(myStatusUpdates.ExerciseActivities, function(key, item){
+				$("#exerciseactivities").append('<li class="addItem_row"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-universal-access" viewBox="0 0 16 16">  <path d="M9.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM6 5.5l-4.535-.442A.531.531 0 0 1 1.531 4H14.47a.531.531 0 0 1 .066 1.058L10 5.5V9l.452 6.42a.535.535 0 0 1-1.053.174L8.243 9.97c-.064-.252-.422-.252-.486 0l-1.156 5.624a.535.535 0 0 1-1.053-.174L6 9V5.5Z"/></svg> '+item+'</li>');
+			});
+			
+			$.each(myStatusUpdates.Positive, function(key, item){
+					$("#positiveitem").append('<li class="addItem_row"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-activity" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2Z"/></svg> '+item+'</li>');
+			});
+			
+			$.each(myStatusUpdates.Gratitude, function(key, item){
+					$("#gratitudeitem").append('<li class="addItem_row"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg> '+item+'</li>');
+			});
+			$('#goalActivities').find('.myGoalActivities').not(':first').remove();
+			$.each(myStatusUpdates.GoalActivities, function(key, item){
+			
+				var goalActivityTemplate = $('#goalActivityTemplate');
+				goalActivityTemplate.find('#goalTerm').html(item.Term);
+				goalActivityTemplate.find('#goalTopic').html(item.Topic);
+				goalActivityTemplate.find('#goalAction').html(item.Action);
+				
+				$('#goalActivities').append(goalActivityTemplate.html());
+			});
+		}
+		
+		$("#selectFiles").change(function(e) {
+			onFileChange(e);
+		});
+
+		function onFileChange(event) {
+			var reader = new FileReader();
+			reader.onload = onReaderLoad;
+			reader.readAsText(event.target.files[0]);
+		}
+
+		function onReaderLoad(event){
+			//alert(event.target.result);
+			console.log('event.target.result',event.target.result);
+			var obj = JSON.parse(event.target.result);
+			localStorage.setItem("myStatusUpdates", JSON.stringify(obj));
+			editMode();
+		}
+	});
+		function copyStatusUpdate() {
+		   // Get the text field
+		  var copyText = JSON.parse(localStorage.getItem("myStatusUpdates"));
+
+		  // Select the text field
+		  //copyText.select();
+		  //copyText.setSelectionRange(0, 9999999); // For mobile devices
+
+		  // Copy the text inside the text field
+		  navigator.clipboard.writeText(copyText);
+		}
+		function downloadStatusUpdate() {
+		  // Get the text field
+		  var myStatusUpdates = JSON.parse(localStorage.getItem("myStatusUpdates"));
+		  var fileName ='StatusUpdate_'+ getCurrentDateTime();
+		  JSONToFile(convertToWhatsAppDisplayFormat(myStatusUpdates), fileName);
+		}
+		const JSONToFile = (obj, filename) => {
+			const blob = new Blob([JSON.stringify(obj, null, 2)], {
+				type: 'application/json',
+			});
+			const url = URL.createObjectURL(blob);
+			const a = document.createElement('a');
+			a.href = url;
+			a.download = `${filename}.txt`;
+			a.click();
+			URL.revokeObjectURL(url);
+		};
+		function getCurrentDateTime(){
+		 return (new Date().toISOString().split('T')[0] +"T"+new Date(new Date()).toString().split(' ')[4]);
+		}
+		
+		function getFormattedDateTime(dateTime){
+		 return (dateTime.split('T')[0] +" "+new Date(dateTime).toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3"));
+		}
+		
+		function convertToWhatsAppDisplayFormat(statusUpdates){
+			var myStatusUpdates = {};
+			myStatusUpdates.EmailId = statusUpdates.EmailId;
+			myStatusUpdates.WokeUpAt = statusUpdates.WokeUpAt;
+			myStatusUpdates.ExerciseActivities = [];
+			$.each(statusUpdates.ExerciseActivities, function(key, item){
+				myStatusUpdates.ExerciseActivities.push(item.startsWith("💫")?(item):("💫"+item));
+			});
+			
+			myStatusUpdates.GoalActivities = [];
+			$.each(statusUpdates.GoalActivities, function(key, item){
+				var goalActivity = {};
+				goalActivity.Term = "🎳"+item.Term+"🎯";
+				goalActivity.Topic = "✨ *"+item.Topic+"* ✨";
+				goalActivity.Action = "🎬"+item.Action;
+				myStatusUpdates.GoalActivities.push(goalActivity);
+			});
+			myStatusUpdates.Positive = [];
+			$.each(statusUpdates.Positive, function(key, item){
+				myStatusUpdates.Positive.push(item.startsWith("💫")?(item):("💫"+item));
+			});
+			myStatusUpdates.Gratitude = [];
+			$.each(statusUpdates.Gratitude, function(key, item){
+				myStatusUpdates.Gratitude.push(item.startsWith("💫")?(item):("💫"+item));
+			});
+			return myStatusUpdates;
+		}
+</script>
+  </body>
+</html>
